@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .card {
+    @apply m-5 border-2 border-violet-300 rounded-lg p-6 dark:bg-neutral-700;
+  };
+  .document {
+    @apply m-5 border-2 bg-[#EBEBFD] rounded-lg  p-6 dark:bg-neutral-700;
+  };
+  .card-text {
+    @apply text-violet-300
+  }
+  .select-botton {
+    @apply inline-block rounded bg-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal  transition duration-150 ease-in-out
+  }
+
+  .next-botton {
+    @apply inline-block rounded bg-[#EBEBFD] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-violet-700 transition duration-150 ease-in-out
+  }
+
+  .view-more-button {
+    @apply inline-block rounded bg-violet-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out
+  }
+
+  .back-button {
+    @apply inline-block rounded bg-gray-300 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out
+  }
+  hr.new1 {
+    border-top: 2px solid white;
+  }
+  h1.title {
+    color: black;
+    font-size: 16px;
+  }
+  h2.title {
+    color: black;
+    font-size: 14px;
+  }
+}

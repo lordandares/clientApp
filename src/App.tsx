@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import './App.css'
-import ClientList from './components/ClientList'
+import ClientList from './components/ClientList/ClientList'
 
 function App() {
   return (
