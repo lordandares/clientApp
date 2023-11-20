@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Client App Server
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Project was build with React Vite, Typescript, Apollo Client, Puppeteer
 
-Currently, two official plugins are available:
+## Installation/deployment instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **Requirements**:  `lts/fermium (v.18.18.0)`. If you're using [nvm](https://github.com/nvm-sh/nvm), run `nvm use`. Aalso you will need to configure aws SSO or use Auth keys from aws to deploy
 
-## Expanding the ESLint configuration
+### Using NPM
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Run `pnpm install` to install the project dependencies
 
-- Configure the top-level `parserOptions` property like this:
+## Test service
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Locally
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+In order to test the app locally, run the following command:
+- run `pnpm local` 
+
+## Functional Test
+
+- run `pnpm local` 
+- run `pnpm test:functional`
+
+## Lint 
+
+- run `npm run lint` 
+- run `npm run lint:fix` 
+
+## Test 
+
+- run `npm run test` 
+- run `npm run test:coverage` 

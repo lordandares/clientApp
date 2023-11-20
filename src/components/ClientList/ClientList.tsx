@@ -23,9 +23,6 @@ const ClientList = (props: ClientListProps) => {
   const defaultColDef = useMemo(
     () => ({
       sortable: true,
-      enableRowGroup: true,
-      enablePivot: true,
-      enableValue: true,
       resizable: true,
       minWidth: 100,
       flex: 1,
