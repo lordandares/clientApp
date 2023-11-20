@@ -10,7 +10,7 @@ export const queryClientList = gql`
     }
   }
 `
-export const findClientById = (id: string) => {
+export const findClientById = (id: string | undefined | null) => {
   const query = `
   query FindClientById {
     findClientById(id: "***") {
@@ -26,8 +26,8 @@ export const findClientById = (id: string) => {
         }
     }
   `
-  query.replace('***', id)
+  const queryId = query.replace('***', id || '')
   return gql`
-    ${query}
+    ${queryId}
   `
 }

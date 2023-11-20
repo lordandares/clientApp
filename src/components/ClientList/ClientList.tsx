@@ -1,17 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/react-in-jsx-scope */
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import { useQuery } from '@apollo/client'
 import { queryClientList } from '../../Graphql/Queries'
-import { IClientModel } from '../../interfaces/IClientData'
 import { ColDef } from 'ag-grid-community'
 
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
-const ClientList = () => {
-  const gridStyle = useMemo(() => ({ height: '500px', width: '100%' }), [])
+interface ClientListProps {
+  setItemIdHandler: (id: string) => void
+}
+
+const ClientList = (props: ClientListProps) => {
+  const { setItemIdHandler } = props
+  const gridStyle = useMemo(() => ({ height: '500px', width: '600px' }), [])
   const { loading, error, data } = useQuery(queryClientList)
   // Each Column Definition results in one Column.
 
@@ -38,18 +42,18 @@ const ClientList = () => {
   ])
 
   // Example of consuming Grid Event
-  const cellClickedListener = useCallback((event: unknown) => {
-    console.log('cellClicked', event)
+  const cellClickedListener = useCallback((event: { data: { id: string } }) => {
+    setItemIdHandler(event.data.id)
   }, [])
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
 
   return (
-    <div>
+    <div className="min-w-[50%]">
       {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
       <div className="ag-theme-alpine" style={gridStyle}>
-        <AgGridReact<IClientModel>
+        <AgGridReact
           rowData={data.queryClientList} // Row Data for Rows
           columnDefs={columnDefs} // Column Defs for Columns
           defaultColDef={defaultColDef} // Default Column Properties
